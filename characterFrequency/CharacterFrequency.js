@@ -11,3 +11,29 @@ characterFrequency("mississippi")  -->  [ [ "i", 4 ], [ "s", 4 ], [ "p", 2 ], [ 
 
 characterFrequency("") -->  [ ]
 */
+
+function charFrequency (string){
+    var obj={}
+    var result= []
+    var elemnt =[]
+    var counter=1;
+    for (var i =0 ; i < string.length; i++){
+        if(obj[string[i]]=== undefined){
+            obj[string[i]]= null
+           elemnt.push(string[i]) 
+        }else {continue}
+        
+        for(var j =i+1 ; j < string.length; j++){
+            if (string[i] === string[j]){
+                counter ++;
+            }
+        }
+        elemnt.push(counter)
+        result.push(elemnt)
+        elemnt=[]
+        counter=1;
+
+        
+    }
+    return result
+}
