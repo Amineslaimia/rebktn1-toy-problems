@@ -35,5 +35,9 @@ function charFrequency (string){
 
         
     }
-    return result
+    var last=result.sort( function compareNumbers(a, b) {
+    return b[1]-a[1]  ;
+})
+   
+    return last
 }
