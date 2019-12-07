@@ -20,3 +20,38 @@ x will always be a positive integer, and s will never be empty
 
 
 */
+function bearMatingSeason(nb,string){
+    var males=""
+    var females =""
+    var smallest =0
+    var result=''
+    var array=[]
+    for(var i =0;i < string.length;i++){
+        if (string[i]==='B'){
+        males=males+string[i]
+        }
+        if(string[i]==='8'){
+            females=females+string[i]
+
+        }
+    }
+   
+        if(males.length <= females.length){
+            smallest =males.length
+        }else{
+            smallest=females.length
+        }
+            for (var j = 0 ; j < smallest;j++){
+                result=result+males[j]+females[j]
+                
+            }
+       
+
+            if(((result.length+1)/2 )>= nb){
+                array.push(result,true)
+            }else{
+                array.push(result,false)
+            }
+        return array
+    
+} 
