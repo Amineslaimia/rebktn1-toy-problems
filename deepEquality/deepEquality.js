@@ -12,4 +12,19 @@
   *
   */
 var deepEquals = function(apple, orange) {
-};
+    for (var key in apple) {
+      if (apple.hasOwnProperty(key) !== orange.hasOwnProperty(key)) return false;
+      switch (typeof (apple[key])) {
+        case 'object':
+          if (!deepEquals(apple[key], orange[key])) return false;
+          break;
+        case 'function':
+          if (typeof (apple[key]) == 'undefined' || (apple[key].toString() != orange[key].toString())) return false;
+          break;
+        default:
+          if (apple[key] != orange[key]) return false;
+      }
+    }
+  
+    return true;
+  };
