@@ -21,6 +21,8 @@ var deepEquals = function(apple, orange) {
         case 'function':
           if (typeof (apple[key]) == 'undefined' || (apple[key].toString() != orange[key].toString())) return false;
           break;
+
+          
         default:
           if (apple[key] != orange[key]) return false;
       }

@@ -9,4 +9,11 @@ parseQueryString("http://example.com?msg=hello%20world") // [ [ "msg", "hello wo
 parseQueryString("http://example.com") // undefined
 */
 
-function parseQueryString(url) {}
+function parseQueryString(url) {
+    var start =str.search(/.com/i)+4
+    var array =[]
+    for (var i = start ; i = string.length;i ++){
+      array.push (string[i])  
+    }
+    return array
+}
