@@ -33,8 +33,18 @@
 
 'use strict';
 
-var compose = function() {
-};
+var compose = (...functions) => arg => {
+    functions.reduce((value , func)=> func(value ,arg))
+}
+  
+   
 
-var pipe = function() {
-};
+
+var pipe = (...functions)=> arg =>{
+    return functions.reduce((value,func)=>{
+    return func(value)}
+    ,arg)
+    
+ }
+ 
+
