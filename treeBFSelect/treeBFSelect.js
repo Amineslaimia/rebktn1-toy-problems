@@ -39,8 +39,26 @@ var Tree = function(value) {
 
 Tree.prototype.BFSelect = function(filter) {
   // return an array of values for which the function filter(value, depth) returns true
+  var array = []
+  if(filter(this.value,0)){
+    array.push(this.value)
+  }
+  var selectchildren =function (thisnode ,d){
+    if(thisnode.children){
+      d++
+    
+    for(var i= 0 ;i<thisnode.children.length;i++){
+        if(filter(thisnode.children[i].value ,d)){
+          array.push(thisnode.children[i].value)
+        }
+        selectchildren(thisnode.children[i],d)
+    }
+  }
+}
+    selectchildren(this,0)
+  return array;
 };
-
+ 
 /**
  * You shouldn't need to change anything below here, but feel free to look.
   */
