@@ -40,16 +40,68 @@
 
 
 var Range = function(start, end, step) {
-};
-
-Range.prototype.size = function () {
-};
-
-Range.prototype.each = function (callback) {
-};
-
-Range.prototype.includes = function (val) {
-};
+    if(start === undefined){
+        return null
+    }else if(step === undefined){
+        this.step =1;
+        this.start = start;
+        this.end = end;
+        this.lastvalue = this.start
+    }else{
+        this.start = start;
+        this.end = end;
+        this.step = step;
+        this.lastvalue = this.start
+  
+    }
+      
+  };
+  Range.prototype.returnNextValue =function (){
+      if(this.end === undefined ){
+          return this.start
+      }
+      if(this.lastvalue >= this.end){
+          this.lastvalue =this.start
+          return this.end
+      }else{
+          this.lastvalue+=this.step
+          return this.lastvalue
+      }
+  }
+  Range.prototype.size = function () {
+     var count =0
+      if(this.end === undefined){
+          return 1
+      }
+      while(this.lastvalue < this.end){
+          count++
+          this.returnNextValue()
+      }
+     return count;
+  };
+  
+  Range.prototype.each = function (callback) {
+      if(this.end === undefined){
+          return 1
+      }
+      while(this.lastvalue < this.end){
+         callback( this.returnNextValue())
+  
+      }
+  };
+  
+  Range.prototype.includes = function (val) {
+      if(this.end === undefined){
+          return 1
+      }
+      while(this.lastvalue < this.end){
+         if( this.returnNextValue()===val){
+             return true
+         }
+  
+      }
+      return false
+  };
 
 var range = new Range(1);
 
