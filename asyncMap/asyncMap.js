@@ -39,4 +39,20 @@
 
 
 var asyncMap = function(tasks, callback) {
-};
+    var array = [];
+    var count = 0;
+
+    for (var i = 0; i < tasks.length; i++) {
+      (function (i) {
+        tasks[i](function (val) {
+          array[i] = val;
+          count++;
+          if(count === tasks.length){
+            callback(array);
+          }
+        });
+      })(i);
+  
+    }
+  
+}; 
