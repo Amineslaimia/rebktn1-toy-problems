@@ -18,7 +18,18 @@
 *
 */
 
-var rockPaperScissors = function (
-) {
-  // TODO: your solution here
-};
+var rockPaperScissors = function (num) {
+    var chars = ["R","P","S"];
+    var length=3**num;
+    var result =[]
+    for(var i = 0 ; i <length;i++){
+      var len = Math.floor(Math.random() * 4);
+      var str = "";
+      while(str.length < num){
+        str += chars[Math.floor(Math.random() * chars.length)];
+      }
+       result.push(str)
+
+}
+return result
+}
