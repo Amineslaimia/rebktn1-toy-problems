@@ -18,21 +18,39 @@
   * Stack Class
   */
   var Stack = function() {
+    this.storage=[];
+    this.nbitems=0;
+    this.minvalue=0
+
 
   // add an item to the top of the stack
     this.push = function(value) {
+
+      this.storage.push(value)
+      this.nbitems++;
+      if(nthis.bitems===1){
+        this.minvalue= value;
+      }
+      if(value < this.minvalue){
+        this.minvalue = value
+      }
     };
 
   // remove an item from the top of the stack
     this.pop = function() {
+      this.storage.pop()
+      this.nbitems--
     };
 
   // return the number of items in the stack
     this.size = function() {
+      return this.nbitems
+
     };
   
   // return the minimum value in the stack
     this.min = function() {
+      return this.minvalue
 
     };
 
