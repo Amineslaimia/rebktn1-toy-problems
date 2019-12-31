@@ -7,3 +7,19 @@ Constraints: Solve this linear time complexity O(n)
 zeroSum([ 1, 3, 2, -3 ]) // true
 zeroSum([ 5, 7, 2, 9 ]) // false
 */
+function zerosum (array){
+    var negobg={}
+    for  (var i =0;i<array.length;i++){
+        if(array[i]<0){
+            if(negobg[array[i]]===undefined){
+                negobg[array[i]]=null
+            }
+        }
+    }
+    for  (var i =0;i<array.length;i++){
+        if(negogb[0-array[i]]===null){
+            return true
+        }
+    }
+ return false
+}
