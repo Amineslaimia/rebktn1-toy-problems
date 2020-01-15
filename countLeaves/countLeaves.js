@@ -30,8 +30,8 @@ root.countLeaves(); // 3
 */
 
 var Tree = function(value) {
-  this.value = value;
-  this.children = [];
+	this.value = value;
+	this.children = [];
 };
 
 /**
@@ -43,17 +43,17 @@ var Tree = function(value) {
  * (wrap values in Tree nodes if they're not already)
  */
 Tree.prototype.addChild = function(child) {
-  if (!child || !(child instanceof Tree)) {
-    child = new Tree(child);
-  }
+	if (!child || !(child instanceof Tree)) {
+		child = new Tree(child);
+	}
 
-  if (!this.isDescendant(child)) {
-    this.children.push(child);
-  } else {
-    throw new Error('That child is already a child of this tree');
-  }
-  // return the new child node for convenience
-  return child;
+	if (!this.isDescendant(child)) {
+		this.children.push(child);
+	} else {
+		throw new Error('That child is already a child of this tree');
+	}
+	// return the new child node for convenience
+	return child;
 };
 
 /**
@@ -61,29 +61,44 @@ Tree.prototype.addChild = function(child) {
  * tree __or any of its sub trees__
  */
 Tree.prototype.isDescendant = function(child) {
-  if (this.children.indexOf(child) !== -1) {
-    // `child` is an immediate child of this tree
-    return true;
-  } else {
-    for (var i = 0; i < this.children.length; i++) {
-      if (this.children[i].isDescendant(child)) {
-        // `child` is descendant of this tree
-        return true;
-      }
-    }
-    return false;
-  }
+	if (this.children.indexOf(child) !== -1) {
+		// `child` is an immediate child of this tree
+		return true;
+	} else {
+		for (var i = 0; i < this.children.length; i++) {
+			if (this.children[i].isDescendant(child)) {
+				// `child` is descendant of this tree
+				return true;
+			}
+		}
+		return false;
+	}
 };
 
 /**
  * remove an immediate child
  */
 Tree.prototype.removeChild = function(child) {
-  var index = this.children.indexOf(child);
-  if (index !== -1) {
-    // remove the child
-    this.children.splice(index, 1);
-  } else {
-    throw new Error('That node is not an immediate child of this tree');
-  }
+	var index = this.children.indexOf(child);
+	if (index !== -1) {
+		// remove the child
+		this.children.splice(index, 1);
+	} else {
+		throw new Error('That node is not an immediate child of this tree');
+	}
+};
+
+Tree.prototype.countLeaves = function() {
+	//var node = this || arguments[1]
+	var countLeaves = 0 || arguments[0];
+	if (node.children !== []) {
+		for (var i = 0; i < node.children.length; i++) {
+			if (node.children[i].children === []) {
+				countLeaves++;
+			} else {
+				countLeaves(countLeaves, node.children.children[i]);
+			}
+		}
+	}
+	return countLeaves;
 };
