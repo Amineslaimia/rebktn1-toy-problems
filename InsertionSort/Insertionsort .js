@@ -1,3 +1,5 @@
+import { array } from "prop-types"
+
 // Sort a linked list using insertion sort.
 // Algorithm of Insertion Sort:
 
@@ -27,15 +29,19 @@
  */
 var insertionSortList = function (head) {
     var node = head
-    var pionter = node.next
-    while (pionter !== null) {
-        while (node.val > pointer.val) {
-            pointer = pointer.next
-        }
-        head = head.next
-        node = pionter.next
-        pionter.next = node
+    var array = []
+    while (node !== null) {
+        array.push(node.val)
+        node.node.next
     }
-    insertionSortList(head)
+    array.sort((a, b) => a - b)
+    head.val = array[0]
+    var node = head.next
+    for (var i = 1; i < array.length; i++) {
+        node.val = array[i];
+        node = node.next
+    }
+
+
 
 };
