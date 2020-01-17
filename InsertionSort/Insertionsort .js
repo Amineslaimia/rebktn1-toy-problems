@@ -25,4 +25,17 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var insertionSortList = function(head) {};
+var insertionSortList = function (head) {
+    var node = head
+    var pionter = node.next
+    while (pionter !== null) {
+        while (node.val > pointer.val) {
+            pointer = pointer.next
+        }
+        head = head.next
+        node = pionter.next
+        pionter.next = node
+    }
+    insertionSortList(head)
+
+};
