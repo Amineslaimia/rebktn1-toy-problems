@@ -6,6 +6,7 @@ Constraints: Solve this linear time complexity O(n)
 
 zeroSum([ 1, 3, 2, -3 ]) // true
 zeroSum([ 5, 7, 2, 9 ]) // false
+<<<<<<< HEAD
 */
 function zerosum (array){
     var negobg={}
@@ -23,3 +24,6 @@ function zerosum (array){
     }
  return false
 }
+=======
+*/
+>>>>>>> 95af5ca94c596181a543f52fbc950149d417307f

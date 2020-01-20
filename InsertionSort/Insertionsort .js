@@ -16,13 +16,12 @@ import { array } from "prop-types"
 // Input: -1->5->3->4->0
 // Output: -1->0->3->4->5
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+// Definition for singly-linked list.
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -32,7 +31,7 @@ var insertionSortList = function (head) {
     var array = []
     while (node !== null) {
         array.push(node.val)
-        node.node.next
+        node = node.next
     }
     array.sort((a, b) => a - b)
     head.val = array[0]
@@ -45,3 +44,12 @@ var insertionSortList = function (head) {
 
 
 };
+var head = ListNode(4)
+var node1 = ListNode(2)
+var node2 = ListNode(1)
+var node3 = ListNode(3)
+
+head.next = node1
+node1.next = node2
+node2.next = node3
+node3.next = null
