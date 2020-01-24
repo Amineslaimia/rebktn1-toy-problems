@@ -28,7 +28,7 @@
 */
 
 // Helper function (do not edit)
-function Node (val) {
+function Node(val) {
   var obj = {};
   obj.value = val || null;
   obj.next = null;
@@ -39,5 +39,34 @@ function Node (val) {
 
 function linkedListIntersection(list1, list2) {
   // TODO: Implement this function!
+  var node1 = list1
+  var node2 = list2
+  var str1 = ''
+  var str2 = ''
+  var longest = 0
+  while (node1 !== null) {
+    str1 = str2 + node1.val
+    node1 = node1.next
+  }
+  while (node2 !== null) {
+    str2 = str2 + node2.val
+    node2 = node2.next
+  }
+  if (str1.length >= str2.length) {
+    for (var i = 0; i < str2.length; i++) {
+      if (str1.includes(str2.slice(i)) !== -1) {
+        return str1.includes(str2.slice(i))
+      }
+
+    }
+  } else {
+    for (var i = 0; i < str2.length; i++) {
+      if (str2.includes(str1.slice(i)) !== -1) {
+        return str2.includes(str1.slice(i))
+      }
+    }
+  }
+  return null
 }
+
 

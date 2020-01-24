@@ -43,16 +43,30 @@ var numbersToWords = {
 };
 
 var numbersToPlace = {
-  10: 'ten',
-  100: 'hundred',
-  1000: 'thousand',
-  1000000: 'million',
-  1000000000: 'billion',
-  1000000000000: 'trillion',
-  1000000000000000: 'quadrillion',
-  1000000000000000000: 'quintillion'
+  2: 'ten',
+  3: 'hundred',
+  4: 'thousand',
+  5: 'million',
+  6: 'billion',
+  7: 'trillion',
+  8: 'quadrillion',
+  9: 'quintillion'
 };
 
 function numberToEnglish(number) {
   // your code here...
+  var string = number.toString()
+  string.lenght - 1
+  for (var keys in numberToEnglish) {
+
+  }
 }
+
+Link - local IPv6 address: fe80:: d0b: a982: d0cf: f0a2 % 11
+IPv4 address: 192.168.1.2
+IPv4 DNS servers: 192.168.1.1
+Primary DNS suffix: Home
+Manufacturer: Realtek
+Description: Realtek PCIe FE Family Controller
+Driver version: 9.1.407.2015
+Physical address(MAC): 3C - 2C - 30 - F9 - AD - 8F
