@@ -27,6 +27,20 @@ function Node(val) {
   return obj;
 }
 
-var hasCycle = function(linkedList) {
-  // your code here...
+function loop(node) {
+  if (node === null) {
+    return
+  }
+  return loop(node.next)
+}
+var hasCycle = function (linkedList) {
+  var node = linkedList
+  try {
+    loop(node)
+  }
+  catch (err) {
+    return true
+  }
+  return false
+
 };
