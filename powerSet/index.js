@@ -19,5 +19,22 @@ powerSet("horse") // [ "", "e", "eh", "eho", "ehor", "ehors", "ehos", "ehr", "eh
 */
 
 function powerSet(string) {
-  // your code here...
+  var obj = {}
+
+  for (var i = 0; i < string.length; i++) {
+    obj[string[i]] = true;
+  }
+
+  var array = Object.keys(obj);
+  var result = [[]];
+  for (var i = 0; i < array.length; i++) {
+
+    var len = result.length;
+    for (var x = 0; x < len; x++) {
+      var s = (result[x].concat(array[i])).join('')
+      result.push(s)
+    }
+  }
+  return result;
+
 }
