@@ -21,6 +21,67 @@ Example input:
 
 
 function sudokuChecker(board) {
-  // Your code here.
-  
+
+  var array = board.split('\n')
+  var newboard = []
+  for (var i = 0; i < array.length; i++) {
+    newboard.push(array[i].split(''))
+  }
+  rows = newboard;
+  cols = [];
+  grid = [];
+
+
+  for (var i = 0; i < 9; i++) {
+    cols.push([]);
+    grid.push([]);
+  }
+
+  for (var row = 0; row < 9; row++) {
+
+    for (var col = 0; col < 9; col++) {
+
+
+      cols[col][row] = newboard[row][col];
+
+      gridRow = Math.floor(row / 3);
+      gridCol = Math.floor(col / 3);
+      gridIndex = gridRow * 3 + gridCol;
+
+
+      grid[gridIndex].push(newboard[row][col]);
+
+    }
+  }
+
+  return (validate(rows) && validate(cols) && validate(grid));
+
+
 }
+
+
+
+
+validate = function (data) {
+
+  for (var row = 0; row < 9; row++) {
+
+    data[row].sort();
+
+    for (var col = 0; col < 9; col++) {
+
+      var value = data[row][col], next_value = data[row][col + 1];
+
+
+      if (!(value && value > 0 && value < 10)) {
+        return false;
+      }
+
+      if (col !== 8 && value === next_value) {
+        return false;
+      }
+
+    }
+  }
+  return true;
+};
